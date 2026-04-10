@@ -17,7 +17,7 @@ export function ExerciseImage({ images, name }: ExerciseImageProps) {
     if (!images) return;
     const interval = setInterval(() => {
       setFrame((f) => (f === 0 ? 1 : 0));
-    }, 1200);
+    }, 2000);
     return () => clearInterval(interval);
   }, [images]);
 
