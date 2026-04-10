@@ -2,9 +2,8 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { WorkoutDefinition } from "@/lib/types";
-import { Check, Footprints } from "lucide-react";
+import { Check, CircleCheck, Footprints } from "lucide-react";
 import { toast } from "sonner";
 
 interface RunSessionProps {
@@ -22,32 +21,31 @@ export function RunSession({ workout, completed, onMarkDone }: RunSessionProps) 
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {completed && (
-        <Badge
-          variant="secondary"
-          className="w-full justify-center bg-emerald-100 py-1.5 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400"
-        >
-          <Check className="mr-1 h-3.5 w-3.5" />
-          Done
-        </Badge>
+        <div className="flex items-center justify-center gap-2 rounded-xl bg-emerald-50 py-3 dark:bg-emerald-900/20">
+          <CircleCheck className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+          <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400">
+            Done
+          </span>
+        </div>
       )}
 
-      <Card>
-        <CardContent className="flex flex-col items-center gap-4 py-8">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+      <Card className="overflow-hidden border-0 shadow-sm">
+        <CardContent className="flex flex-col items-center gap-5 py-10">
+          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
             <Footprints className="h-8 w-8 text-primary" />
           </div>
           <div className="text-center">
-            <h3 className="text-lg font-semibold">{workout.label}</h3>
-            <p className="text-sm text-muted-foreground">
+            <h3 className="text-xl font-bold">{workout.label}</h3>
+            <p className="mt-1 text-sm text-muted-foreground">
               {workout.description}
             </p>
           </div>
 
           {!completed && (
             <Button
-              className="mt-2 w-full max-w-xs py-6 text-base font-semibold"
+              className="mt-2 w-full max-w-xs rounded-xl py-6 text-base font-bold shadow-md"
               size="lg"
               onClick={handleDone}
             >

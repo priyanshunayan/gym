@@ -53,18 +53,28 @@ export default function HomePage() {
 
       {/* Stats bar */}
       {statsLoaded && (
-        <div className="flex gap-4">
-          <div className="flex items-center gap-2 rounded-lg bg-muted px-3 py-2">
-            <Flame className="h-4 w-4 text-orange-500" />
-            <span className="text-sm font-medium">
-              {localStats.currentStreak} day streak
-            </span>
+        <div className="grid grid-cols-2 gap-3">
+          <div className="flex items-center gap-3 rounded-xl border border-orange-200/60 bg-orange-50 px-4 py-3 dark:border-orange-800/30 dark:bg-orange-950/20">
+            <Flame className="h-5 w-5 text-orange-500" />
+            <div>
+              <p className="text-lg font-extrabold leading-none">
+                {localStats.currentStreak}
+              </p>
+              <p className="text-[11px] font-medium text-muted-foreground">
+                day streak
+              </p>
+            </div>
           </div>
-          <div className="flex items-center gap-2 rounded-lg bg-muted px-3 py-2">
-            <Trophy className="h-4 w-4 text-yellow-500" />
-            <span className="text-sm font-medium">
-              {localStats.totalCompleted} sessions
-            </span>
+          <div className="flex items-center gap-3 rounded-xl border border-yellow-200/60 bg-yellow-50 px-4 py-3 dark:border-yellow-800/30 dark:bg-yellow-950/20">
+            <Trophy className="h-5 w-5 text-yellow-500" />
+            <div>
+              <p className="text-lg font-extrabold leading-none">
+                {localStats.totalCompleted}
+              </p>
+              <p className="text-[11px] font-medium text-muted-foreground">
+                sessions
+              </p>
+            </div>
           </div>
         </div>
       )}

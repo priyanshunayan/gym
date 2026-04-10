@@ -12,8 +12,8 @@ export default function HistoryPage() {
     return (
       <div className="space-y-4">
         <Skeleton className="h-10 w-48" />
-        <Skeleton className="h-32 w-full" />
-        <Skeleton className="h-32 w-full" />
+        <Skeleton className="h-40 w-full" />
+        <Skeleton className="h-40 w-full" />
       </div>
     );
   }
@@ -21,37 +21,42 @@ export default function HistoryPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold">Stats</h1>
+        <h1 className="text-2xl font-extrabold tracking-tight">Stats</h1>
         <p className="text-sm text-muted-foreground">Your workout history</p>
       </div>
 
       <div className="grid gap-4">
-        <Card>
-          <CardContent className="flex items-center gap-4 py-6">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-100 dark:bg-orange-900/30">
-              <Flame className="h-6 w-6 text-orange-500" />
+        <Card className="border-0 shadow-sm">
+          <CardContent className="flex items-center gap-5 px-5 py-6">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50 dark:bg-orange-900/20">
+              <Flame className="h-7 w-7 text-orange-500" />
             </div>
             <div>
-              <p className="text-3xl font-bold">{stats.currentStreak}</p>
-              <p className="text-sm text-muted-foreground">Day streak</p>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="flex items-center gap-4 py-6">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-100 dark:bg-yellow-900/30">
-              <Trophy className="h-6 w-6 text-yellow-500" />
-            </div>
-            <div>
-              <p className="text-3xl font-bold">{stats.totalCompleted}</p>
-              <p className="text-sm text-muted-foreground">
-                Total sessions completed
+              <p className="text-4xl font-extrabold tracking-tight">
+                {stats.currentStreak}
+              </p>
+              <p className="text-sm font-medium text-muted-foreground">
+                Day streak
               </p>
             </div>
           </CardContent>
         </Card>
 
+        <Card className="border-0 shadow-sm">
+          <CardContent className="flex items-center gap-5 px-5 py-6">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-50 dark:bg-yellow-900/20">
+              <Trophy className="h-7 w-7 text-yellow-500" />
+            </div>
+            <div>
+              <p className="text-4xl font-extrabold tracking-tight">
+                {stats.totalCompleted}
+              </p>
+              <p className="text-sm font-medium text-muted-foreground">
+                Sessions completed
+              </p>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

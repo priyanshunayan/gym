@@ -1,4 +1,5 @@
-import { Badge } from "@/components/ui/badge";
+"use client";
+
 import { WorkoutDefinition } from "@/lib/types";
 
 interface DayHeaderProps {
@@ -9,13 +10,19 @@ interface DayHeaderProps {
 
 export function DayHeader({ dayName, formattedDate, workout }: DayHeaderProps) {
   return (
-    <div className="space-y-1">
-      <div className="flex items-center gap-2">
-        <h1 className="text-2xl font-bold">{dayName}</h1>
-        <Badge variant="secondary">{workout.subtitle}</Badge>
+    <div className="rounded-2xl bg-gradient-to-br from-primary to-primary/80 px-5 py-5 text-primary-foreground">
+      <p className="text-sm font-medium opacity-80">{formattedDate}</p>
+      <h1 className="mt-1 text-3xl font-extrabold tracking-tight">
+        {dayName}
+      </h1>
+      <div className="mt-2 flex items-center gap-2">
+        <span className="rounded-full bg-white/20 px-3 py-0.5 text-sm font-semibold backdrop-blur">
+          {workout.label}
+        </span>
+        <span className="text-sm font-medium opacity-70">
+          {workout.subtitle}
+        </span>
       </div>
-      <p className="text-sm text-muted-foreground">{formattedDate}</p>
-      <h2 className="text-lg font-medium text-primary">{workout.label}</h2>
     </div>
   );
 }

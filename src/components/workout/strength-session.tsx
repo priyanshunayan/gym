@@ -1,10 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { ExerciseCard } from "./exercise-card";
 import { WorkoutDefinition, ExerciseLog } from "@/lib/types";
-import { Check } from "lucide-react";
+import { Check, CircleCheck } from "lucide-react";
 import { toast } from "sonner";
 
 interface StrengthSessionProps {
@@ -32,15 +31,14 @@ export function StrengthSession({
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {completed && (
-        <Badge
-          variant="secondary"
-          className="w-full justify-center bg-emerald-100 py-1.5 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400"
-        >
-          <Check className="mr-1 h-3.5 w-3.5" />
-          Session Completed
-        </Badge>
+        <div className="flex items-center justify-center gap-2 rounded-xl bg-emerald-50 py-3 dark:bg-emerald-900/20">
+          <CircleCheck className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+          <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400">
+            Session Completed
+          </span>
+        </div>
       )}
 
       {workout.exercises.map((exerciseDef) => {
@@ -64,7 +62,7 @@ export function StrengthSession({
 
       {!completed && (
         <Button
-          className="w-full py-6 text-base font-semibold"
+          className="w-full rounded-xl py-6 text-base font-bold shadow-md"
           size="lg"
           onClick={handleComplete}
         >

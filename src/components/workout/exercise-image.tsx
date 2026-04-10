@@ -22,20 +22,20 @@ export function ExerciseImage({ images, name }: ExerciseImageProps) {
 
   if (!images) {
     return (
-      <div className="flex h-32 items-center justify-center rounded-md bg-muted">
-        <Dumbbell className="h-8 w-8 text-muted-foreground" />
+      <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-muted">
+        <Dumbbell className="h-6 w-6 text-muted-foreground/60" />
       </div>
     );
   }
 
   return (
-    <div className="relative h-40 w-full overflow-hidden rounded-md bg-muted">
+    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-muted">
       <Image
         src={images[frame]}
         alt={name}
         fill
-        className="object-contain"
-        sizes="(max-width: 768px) 100vw, 400px"
+        className="object-cover"
+        sizes="80px"
       />
     </div>
   );
